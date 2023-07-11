@@ -1,0 +1,193 @@
+/* font family */
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+/* colors */
+:root {
+    --black-color: rgb(29, 26, 26);
+    --white-color: #fff;
+    --gray-color: rgb(173, 173, 173)
+}
+
+body {
+    background-color: var(--black-color);
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-end-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* title */
+
+#display {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.top-title span {
+    color: var(--gray-color);
+    font-size: 1.1rem;
+    user-select: none;
+    margin-bottom: .5rem;
+}
+
+.top-title h3 {
+    font-size: 50px;
+    color: var(--gray-color);
+    user-select: none;
+}
+
+#iq-level p {
+    font-size: 1.2rem;
+    width: 240px;
+    color: var(--white-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* all buttons style */
+
+.btn button {
+    width: 250px;
+    height: 70px;
+    font-size: 1.4rem;
+    color: var(--black-color);
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    user-select: none;
+}
+
+.btn button:hover {
+    transition: transform 150ms;
+    transform: scale(1.03);
+    color: var(--white-color);
+}
+
+/* right answer button */
+
+#right-answer button {
+    background: linear-gradient(90deg, rgba(39, 177, 0, 1) 17%, rgba(92, 226, 29, 1) 53%, rgba(84, 187, 3, 1) 85%);
+}
+
+#right-answer button:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 244, 28, 0.6);
+}
+
+/* wrong answer button */
+
+#wrong-answer button {
+    background: linear-gradient(90deg, rgba(177, 0, 0, 1) 17%, rgba(185, 25, 25, 1) 52%, rgba(187, 3, 3, 1) 85%);
+}
+
+#wrong-answer button:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(244, 24, 8, 0.6);
+}
+
+/* start btn */
+
+#start-btn {
+    margin-top: 1.2rem;
+}
+
+/* start btn & play again btn */
+
+#start-btn button,
+#play-again button {
+    background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 102, 255) 100%);
+    font-size: 1.6rem;
+    margin-top: 1rem;
+}
+
+#start-btn button:active,
+#play-again button:active {
+    background: linear-gradient(90deg, rgb(66, 126, 255) 0%, rgb(57, 136, 255) 100%);
+}
+
+#start-btn button:hover,
+#play-again button:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+    cursor: pointer;
+
+}
+
+#images-page {
+    height: 90vh;
+}
+
+#test-1 {
+    width: 37.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(198, 205, 201, 1) 25%, rgb(218, 221, 216) 36%, rgb(216, 219, 214)64%, rgba(198, 205, 201, 1) 75%);
+    border-radius: 7px;
+}
+
+/* timer & pageCounter */
+
+.top-test {
+    display: flex;
+    align-items: center;
+    gap: 25rem;
+    margin-top: 1rem;
+    color: #000;
+}
+
+/* question ( image & text ) */
+
+.main-test {
+    margin: 1rem 0;
+    color: #000;
+    font-size: 1.3rem;
+}
+
+.question {
+    margin: 2rem 0;
+}
+
+/* option (images) */
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.options img {
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgb(228, 228, 228) 30%, rgb(219, 218, 218) 66%);
+}
+
+.options img:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(194, 194, 194) 30%, rgb(194, 193, 193) 66%);
+    border-color: #adadad;
+    transform: scale(1.05);
+}
+
+.options img:active {
+    background: #e9e9e9;
+    border-color: #e9e9e9;
+}
