@@ -227,6 +227,8 @@ function iqStatus() {
 
 // TODO : timerBox
 
+
+// * by clicking on playAgainBtn the page will be reload
 function playAgain() {
     let playAgainBtn = $.querySelector('#play-again');
     playAgainBtn.addEventListener('click', () => {
@@ -234,10 +236,13 @@ function playAgain() {
     });
 }
 
+// * for writing less code
+// whenever it called , add the hide class to the parameter if it doesn't have , remove it if it has
 function changeDisplay(element) {
     element.classList.toggle('hide')
 }
 
+// * questions html
 function questionsHtml() {
     bodyEl.innerHTML = `<div class="container" id="images-page">
         <div id="test">
