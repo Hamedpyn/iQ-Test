@@ -54,10 +54,11 @@ body {
 #iq-level p {
     font-size: 1.2rem;
     width: 240px;
-    color: var(--white-color);
+    color: #d1d1d1;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     text-align: center;
+    line-height: 23px;
 }
 
 /* all buttons style */
