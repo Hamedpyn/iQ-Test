@@ -7,6 +7,7 @@ let $ = document,
     startBtn = $.querySelector('#start-btn button'),
     // whole start page
     startPage = $.querySelector('.start-page'),
+    userName = $.querySelector('#name-btn input'),
     // current question
     currentQuestion = 0,
     // end page
@@ -22,8 +23,6 @@ let $ = document,
     n = 0,
     // all correct answers in a array
     correctAnswers = [2, 0, 4, 4, 1, 0, 1, 1, 1, 5, 3, 0, 3, 6, 1, 2, 0, 5, 4, 7, 3, 3, 6, 5, 3, 6, 6, 2, 1, 7];
-
-
 
 // * Adding the questions
 // * By clicking on the options : score , correctAnswers and wrong answers will be count
@@ -68,10 +67,12 @@ function questionBox() {
         // calling the questionImage to work
         updateQuestionImage()
         // if currentQuestion was more than 30 :
+
     } else {
         endPage()
     }
     markCorrectAnswers()
+
 }
 
 // * updatingTheQuestionImage Function
@@ -99,11 +100,14 @@ function answerFunction(number) {
     </div>
     `
 }
-
 // * when startBtn has been clicked
 startBtn.addEventListener('click', () => {
     // call startFunction
-    startFunction()
+    if (userName.value.length >= 1) {
+        startFunction()
+    } else {
+        alert('Enter Your Name Please')
+    }
 })
 
 // * adding 1 to currentQuestion for the first question be in loop
@@ -114,7 +118,6 @@ function startFunction() {
     changeDisplay(startPage)
     questionBox()
 }
-
 
 // * endPage html
 // * calling  PlayAgain and iqStatus to work whenever the endPage has been called
@@ -128,7 +131,7 @@ function endPage() {
                 <span>/ 150</span>
             </div>
             <div id="iq-level">
-                <p></p>
+                <p>Dear ${userName.value}, </p>
             </div>
             <div id="right-answer" class="btn">
                 <button>
@@ -225,9 +228,6 @@ function iqStatus() {
     }
 }
 
-// TODO : timerBox
-
-
 // * by clicking on playAgainBtn the page will be reload
 function playAgain() {
     let playAgainBtn = $.querySelector('#play-again');
@@ -251,11 +251,6 @@ function questionsHtml() {
                     <span class="page">${currentQuestion}</span>
                     <span>/</span>
                     <span>30</span>
-                </div>
-                <div class="timer">
-                    <span class="minutes">04</span>
-                    <span>:</span>
-                    <span class="seconds">60</span>
                 </div>
             </div>
             <div class="main-test">
