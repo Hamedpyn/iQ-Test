@@ -1,4 +1,4 @@
-// ! DOM Selectors
+// * DOM Selectors
 
 let $ = document,
     // body
@@ -13,31 +13,47 @@ let $ = document,
     endSection = $.querySelector('.end-page'),
     // options html
     optionsHtml = '',
-    // final point
+    // correct answers
     correct = 0,
+    // wrong answers
     wrong = 0,
+    // final score
     score = 0,
+    n = 0,
+    // all correct answers in a array
     correctAnswers = [2, 0, 4, 4, 1, 0, 1, 1, 1, 5, 3, 0, 3, 6, 1, 2, 0, 5, 4, 7, 3, 3, 6, 5, 3, 6, 6, 2, 1, 7];
 
 
+
+// * Adding the questions
+// * By clicking on the options : score , correctAnswers and wrong answers will be count
 function questionBox() {
+    // if current question was 30 or less
     if (currentQuestion <= 30) {
+        // if it was 12 or less
         if (currentQuestion <= 12) {
+            // optionsHtml will be empty
             optionsHtml = ''
+            // answers will be loop 6 times
             for (let i = 1; i <= 6; i++) {
                 optionsHtml += answerFunction(i)
             }
+            // if it was between 13 to 30
         } else if (13 <= currentQuestion && 30 >= currentQuestion) {
+            // optionsHtml will be empty
             optionsHtml = ''
+            // answers will be loop 6 times
             for (let i = 1; i <= 8; i++) {
                 optionsHtml += answerFunction(i)
             }
         }
+        // calling the questionsHtml to work
         questionsHtml()
-
+        // selecting the answerImages
         let options = $.querySelectorAll('.options img')
         options.forEach(item => {
             item.addEventListener('click', () => {
+                // if it had the true class
                 if (item.classList.contains('true')) {
                     correct++
                     score = correct * 5
@@ -45,16 +61,20 @@ function questionBox() {
                     wrong++
                 }
                 currentQuestion++;
+                // when options been clicked : questionBox will be work again
                 questionBox();
             });
         });
+        // calling the questionImage to work
         updateQuestionImage()
+        // if currentQuestion was more than 30 :
     } else {
         endPage()
     }
     markCorrectAnswers()
 }
 
+// * updatingTheQuestionImage Function
 function updateQuestionImage() {
     let questionImage = $.querySelector('.picture');
     let questionImagePath = '';
@@ -71,6 +91,7 @@ function markCorrectAnswers() {
     options[correctAnswer].classList.add('true');
 }
 
+// * returning the answerImages function to use it wherever we want
 function answerFunction(number) {
     return `
     <div class="options">
@@ -79,17 +100,24 @@ function answerFunction(number) {
     `
 }
 
+// * when startBtn has been clicked
 startBtn.addEventListener('click', () => {
+    // call startFunction
     startFunction()
-    updateQuestionImage()
 })
 
+// * adding 1 to currentQuestion for the first question be in loop
+// * adding hide class to startPage
+// * calling questionBox to work
 function startFunction() {
     currentQuestion++
     changeDisplay(startPage)
     questionBox()
 }
 
+
+// * endPage html
+// * calling  PlayAgain and iqStatus to work whenever the endPage has been called
 function endPage() {
     bodyEl.innerHTML =
         `<section class="end-page">
@@ -122,64 +150,79 @@ function endPage() {
     iqStatus()
 }
 
-// FIXME: changing the innerHtml
+// * giving an iqLevelText based on your score
 function iqStatus() {
     let iqLevel = $.querySelector('#iq-level p')
     switch (score) {
         case 10:
         case 15:
         case 20:
-            iqLevel.innerHTML = `Worse`
+            if (n < `Your iQ is the lowest level`.length) {
+                iqLevel.innerHTML += `Your iQ is the lowest level`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
         case 25:
         case 30:
         case 35:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Your IQ is low, try harder to get better results'.length) {
+                iqLevel.innerHTML += `Your IQ is low, try harder to get better results`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 40:
         case 45:
         case 50:
-        case 55:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Your IQ is below average'.length) {
+                iqLevel.innerHTML += `Your IQ is below average`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 55:
         case 60:
         case 65:
-        case 70:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Your IQ is lower than Ass Kardashian My bad my bad Kim Kardashian'.length) {
+                iqLevel.innerHTML += `Your IQ is lower than Ass Kardashian My bad my bad Kim Kardashian`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 70:
         case 75:
         case 80:
         case 85:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Your IQ is average'.length) {
+                iqLevel.innerHTML += `Your IQ is average`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
-        case 80:
-        case 85:
         case 90:
-            iqLevel.innerHTML = `Worse`
-            break;
         case 95:
         case 100:
-        case 105:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Congratulations, your IQ is high'.length) {
+                iqLevel.innerHTML += `Congratulations, your IQ is high`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 105:
         case 110:
         case 115:
-        case 120:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'You are a SMART person bro'.length) {
+                iqLevel.innerHTML += `You are a SMART person bro`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 120:
         case 125:
         case 130:
-        case 135:
-            iqLevel.innerHTML = `Worse`
+            if (n < 'Your IQ is SUPER HIGH , dude'.length) {
+                iqLevel.innerHTML += `Your IQ is SUPER HIGH , dude`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
+        case 135:
         case 140:
         case 145:
-            iqLevel.innerHTML = `nnn`
+            if (n < 'You are a Genius bro'.length) {
+                iqLevel.innerHTML += `You are a Genius bro`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
             break;
-            default:
-            iqLevel.innerHTML = `Your Genius`
-            break;
+        case 150:
+            if (n < 'Tesla my friend , is that you?'.length) {
+                iqLevel.innerHTML += `Tesla my friend , is that you?`.charAt(n); n++; setTimeout(iqStatus, 50)
+            }
     }
-
 }
 
 // TODO : timerBox
