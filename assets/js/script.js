@@ -21,7 +21,6 @@ let $ = document,
 
 
 function questionBox() {
-    console.log('Question box function called');
     if (currentQuestion <= 30) {
         if (currentQuestion <= 12) {
             optionsHtml = ''
@@ -98,7 +97,7 @@ function endPage() {
         <div class="start-end-page">
             <div class="top-title" id="display">
                 <h3 id="final-result">${score}</h3>
-                <span>/ 150  Point</span>
+                <span>/ 150</span>
             </div>
             <div id="iq-level">
                 <p></p>
@@ -120,7 +119,71 @@ function endPage() {
     </div>
 </section>`
     playAgain()
+    iqStatus()
 }
+
+// FIXME: changing the innerHtml
+function iqStatus() {
+    let iqLevel = $.querySelector('#iq-level p')
+    switch (score) {
+        case 10:
+        case 15:
+        case 20:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 25:
+        case 30:
+        case 35:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 45:
+        case 50:
+        case 55:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 60:
+        case 65:
+        case 70:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 75:
+        case 80:
+        case 85:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 80:
+        case 85:
+        case 90:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 95:
+        case 100:
+        case 105:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 110:
+        case 115:
+        case 120:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 125:
+        case 130:
+        case 135:
+            iqLevel.innerHTML = `Worse`
+            break;
+        case 140:
+        case 145:
+            iqLevel.innerHTML = `nnn`
+            break;
+            default:
+            iqLevel.innerHTML = `Your Genius`
+            break;
+    }
+
+}
+
+// TODO : timerBox
+
 function playAgain() {
     let playAgainBtn = $.querySelector('#play-again');
     playAgainBtn.addEventListener('click', () => {
